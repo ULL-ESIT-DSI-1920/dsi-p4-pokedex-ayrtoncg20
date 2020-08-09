@@ -1,0 +1,48 @@
+#pokedex{
+    margin-top: 15px;
+    width: 500px;
+    height: 500px;
+    background-color: red;
+    margin-left: 600px;
+    border-radius: 15%;
+    text-align: center;
+    border-color: black;
+}
+
+
+#pokedex img{
+    align-content: center;
+    margin-top: 20px;
+    margin:0px auto;
+    width: 500px;
+    height: 200px;   
+    margin-left: 2px; 
+}
+
+.fondo{
+    align-content: center;
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;   
+}
+
+.fondo .delante{
+    display: none;
+}
+
+.detras :hover {
+    display: none;
+} 
+.detras {
+    width: 150px;
+    height: 150px;
+}
+
+.detras:hover{
+    visibility: hidden;
+    
+}
+
+
+
+

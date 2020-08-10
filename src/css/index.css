@@ -51,9 +51,18 @@
 
 .carta:hover .delante {
     display: inline-block;
+    animation: redimensionar 3s infinite;
 }
 
-
+@keyframes redimensionar {
+    0% {
+      transform: scale(1);
+    }
+  
+    100% {
+      transform: scale(1.3);
+    }
+  }
 
 
 

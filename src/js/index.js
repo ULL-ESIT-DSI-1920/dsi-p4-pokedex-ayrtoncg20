@@ -45,9 +45,9 @@ const mostrar_pokemons = async () => {
     for (var i = 0; i < array_pokemons.length; i++) {
         pokedex.innerHTML += `
                     <div class="carta">
-                        ${array_pokemons[i].id} ${array_pokemons[i].nombre} 
                         <img src="${array_pokemons[i].imagen_detras}">
-                        <img src="${array_pokemons[i].imagen_delante}" class="delante">
+                        <img src="${array_pokemons[i].imagen_delante}" class="delante"><br>
+                        ${array_pokemons[i].id} ${array_pokemons[i].nombre} 
                     </div>
                     `
     }

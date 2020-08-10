@@ -1,0 +1,8 @@
+{
+    "plugins": {
+        "postcss-font-magician": true,
+        "postcss-nesting": true,
+        "autoprefixer": true,
+        "postcss-clean": true
+    }
+}

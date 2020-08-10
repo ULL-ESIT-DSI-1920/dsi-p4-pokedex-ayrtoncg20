@@ -1,2 +1,2 @@
 #pokedex{margin-top:15px;width:500px;height:500px;background-color:red;margin-left:600px;border-radius:15%;text-align:center;border-color:#000}#pokedex img{align-content:center;width:500px;height:200px;margin:0 auto 0 2px}.carta{border-radius:2%;background-color:#b5b5b5;display:inline-block;position:relative;margin-top:10px;text-align:center;width:200px;height:200px;align-items:center;font-weight:700;border:3px solid #7e7e7e}.carta img{width:150px;height:150px}.carta .delante,.carta:hover img{display:none}.carta:hover .delante{display:inline-block;animation:redimensionar 3s infinite}@keyframes redimensionar{0%{transform:scale(1)}to{transform:scale(1.3)}}
-/*# sourceMappingURL=/css.3f0af12d.css.map */
+/*# sourceMappingURL=/dsi-p4-pokedex-ayrtoncg20/css.3f0af12d.css.map */

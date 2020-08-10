@@ -19,29 +19,42 @@
     margin-left: 2px; 
 }
 
-.fondo{
-    align-content: center;
+.carta{
+    border-radius: 2%;
+    background-color: #B5B5B5; 
+    display: inline-block; 
+    align-items: center;
+    position: relative;
     margin-top: 10px;
+    text-align: center;
     width: 200px;
     height: 200px;   
+    align-items: center;    
+    font-weight: bold;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #7E7E7E;
 }
 
-.fondo .delante{
-    display: none;
-}
-
-.detras :hover {
-    display: none;
-} 
-.detras {
+.carta img {
     width: 150px;
     height: 150px;
 }
 
-.detras:hover{
-    visibility: hidden;
-    
+.carta:hover img {
+    display: none;
 }
+
+.carta .delante {
+    display: none;
+}
+
+.carta:hover .delante {
+    display: inline-block;
+}
+
+
+
 
 
 

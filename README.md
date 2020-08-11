@@ -44,10 +44,26 @@ Retos
 
 ### Comenzando 
 
-![uno](imagenes/index_html.png)
+Lo primero que tenemos que hacer es crear la jerarquía de la práctica, para ello creamos todos los directorios. 
+En el index_html he declarado una serie de div para luego utilizarlos en el javascript y rellenarlos con los pokemons, también he hecho una especia de pokedex anterior para que quede un poco mad dinámico y no salgan los pokemons porque sí. En la siguiente imagen podemos observar el código llevado a cabo:
+
+![uno](imagenes/index.html.png)
+
+Lo siguiente fue meternos con el javascript, con el archivo index.js, este archivo va a tener las funciones. Lo primero que tuve que hacer fue obtener el evento del click en el boton de la pokedex por lo que cree una funciona donde hicieramos esto y la pokedex la ocultamos y mostramos los pokemon, también llamamos a la funcion obtener pokemon. 
+En la función obtener pokemos hacemos uso de las promesas para obtener los objetos de los pokemons de la API proporcionada, guardamos los datos en un json lo que lo pasamos a una constante y luego creamos un nuevo objeto pokemon con los datos del pokemon, en este caso, el id, el nombre, la imagen delantera y la imagen trasera, y estos pokemon al ir creando objeto por objeto los tenemos que guardar en algun sitio para luego poder mostrarlos por pantalla para ello llamamos a la funcion insertar pokemon que inserta cada objeto de cada pokemon en un array de pokemon que tenemos hecho al principio. Cuando todo esto haya acabado llamamos a la funcion mostrar pokemon que se encargara de mostrar en la pagina web todos los pokemons en lista ascendente. En la siguiente imagen podemos observar el código:
+
 ![dos](imagenes/index_js1.png)
+
+En la siguiente imagen podemos observar el codigo de mostrar los pokemons, lo que hacemos es buscar el elemento que se llame contenido que es donde van a estar los pokemon y guardarlo en una constante que luego utilizaremos. 
+Creamos un for del tamaño del array que en este caso sera de 151, y para cada posición creamos un div carta con dos imagenes, por lo que vamos a tener el id el nombre y las dos imagenes, la trasera y la delantera. 
+
 ![tres](imagenes/index_js2.png)
+
+Creamos una clase pokemon para poder hacer objetos de tipo pokemon que tuviera el nombre, el id, y las imagenes correspondientes a cada pokemon. 
+
 ![cuatro](imagenes/pokemon.js.png)
+
+
 
 
 

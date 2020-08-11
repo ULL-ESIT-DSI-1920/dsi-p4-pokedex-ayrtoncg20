@@ -42,4 +42,16 @@ Retos
 - Digital Clock: Reto fácil. Implementa un reloj digital que muestre la hora actual. Para conseguir el relleno izquierdo de los ceros, investiga el método .padStart().
 - Analogic Clock: Reto difícil. Implementa un reloj analógico que muestre la hora real · Previsualización
 
+### Comenzando 
+
+[uno](imagenes/index_html.png)
+[dos](imagenes/index_js1.png)
+[tres](imagenes/index_js2.png)
+[cuatro](imagenes/pokemon.js.png)
+
+
+
+
+
+
 

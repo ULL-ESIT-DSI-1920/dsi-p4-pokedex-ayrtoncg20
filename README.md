@@ -63,6 +63,15 @@ Creamos una clase pokemon para poder hacer objetos de tipo pokemon que tuviera e
 
 ![cuatro](imagenes/pokemon.js.png)
 
+Aquí tenemos los estilos dados a cada uno de los div o de las clases o las propias imagenes. Como se puede ver un poco en la primera imagen, hemos hecho uso de :hover para que cuando nosotros pasemos el raton por encima de la imagen del pokemon se nos ponga la otra, tambien hemos hecho uso de display: inline-block y display: none para poder quitarlas y ponerlas cuando nosotros dejemos de pasar con el raton por encima. 
+
+![cinco](imagenes/css1.png)
+
+Para redimensionar la imagen solo hemos tenido que hacer uso de animation y de un keyframes llamado redimensionar donde le transformamos la escala a la imagen. 
+
+![seis](imagenes/css2.png)
+
+
 
 
 

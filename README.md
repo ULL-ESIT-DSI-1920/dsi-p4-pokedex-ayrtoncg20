@@ -44,10 +44,10 @@ Retos
 
 ### Comenzando 
 
-[uno](imagenes/index_html.png)
-[dos](imagenes/index_js1.png)
-[tres](imagenes/index_js2.png)
-[cuatro](imagenes/pokemon.js.png)
+![uno](imagenes/index_html.png)
+![dos](imagenes/index_js1.png)
+![tres](imagenes/index_js2.png)
+![cuatro](imagenes/pokemon.js.png)
 
 
 

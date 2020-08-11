@@ -71,6 +71,8 @@ Para redimensionar la imagen solo hemos tenido que hacer uso de animation y de u
 
 ![seis](imagenes/css2.png)
 
+### ¿Qué es PostCss?
+
 
 
 

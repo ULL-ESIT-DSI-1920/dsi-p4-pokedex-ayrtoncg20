@@ -73,6 +73,7 @@ Para redimensionar la imagen solo hemos tenido que hacer uso de animation y de u
 
 ### ¿Qué es PostCss?
 
+Es “una herramienta para transformar CSS con plugins de Javascript”
 
 
 

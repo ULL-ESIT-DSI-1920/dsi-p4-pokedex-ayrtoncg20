@@ -75,6 +75,14 @@ Para redimensionar la imagen solo hemos tenido que hacer uso de animation y de u
 
 Es “una herramienta para transformar CSS con plugins de Javascript”
 
+### RETOS
+
+1. Busca plugins de PostCSS que consideres interesantes y documentalos en el README.md con un enlace a su GitHub y una breve descripción de lo que hacen y para que podría serte útil.
+
+# CSSNext
+
+CSS Next te permite usar la sintaxis más actualizada de CSS en sitios web que estás desarrollando. Como debes saber la W3C, comunidad encargada de regular los estándares usados en la web, publica nuevas reglas para CSS que permiten a los desarrolladores agilizar su proceso de trabajo. Sin embargo, estas nuevas reglas todavía no han sido implementadas en las últimas versiones de los navegadores más populares. Es aquí cuando CSS Next entra en acción y te permite hacer uso de esta nueva sintaxis sin comprometer el funcionamiento de tus sitios.
+
 
 
 

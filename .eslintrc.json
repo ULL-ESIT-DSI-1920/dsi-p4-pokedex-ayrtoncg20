@@ -19,9 +19,14 @@
         "sourceType": "module"
     },
     "rules": {
-        "semi": [
-            "error",
-            "always"
-        ]
+        "camelcase": "off",
+        "no-undef": "off",
+        "no-mixed-operators": "off",
+        "no-void": "off",
+        "no-unused-vars": "off",
+        "no-undef-init": "off",
+        "no-unsafe-finally": "off",
+        "eqeqeq": "off",
+        "no-new-func": "off"
     }
 }

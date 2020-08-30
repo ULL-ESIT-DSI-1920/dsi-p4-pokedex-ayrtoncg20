@@ -36,5 +36,8 @@
     "postcss-nesting": "^7.0.1",
     "prettier": "^2.0.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "postcss-mixins": "^6.2.3",
+    "postcss-nested": "^4.2.3"
+  }
 }

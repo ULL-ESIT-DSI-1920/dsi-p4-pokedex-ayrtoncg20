@@ -34,24 +34,26 @@
     border-width: 3px;
     border-style: solid;
     border-color: #7E7E7E;
-}
 
-.carta img {
-    width: 150px;
-    height: 150px;
-}
+    img {
+        width: 150px;
+        height: 150px;
+    }
 
-.carta:hover img {
-    display: none;
-}
+    .delante {
+        display: none;
+    }
+    
+    &:hover img {
+        display: none;
+    }
 
-.carta .delante {
-    display: none;
-}
+    &:hover .delante {
+        display: inline-block;
+        animation: redimensionar 3s infinite;
+    }
 
-.carta:hover .delante {
-    display: inline-block;
-    animation: redimensionar 3s infinite;
+
 }
 
 @keyframes redimensionar {

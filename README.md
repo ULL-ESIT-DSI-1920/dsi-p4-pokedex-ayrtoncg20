@@ -166,29 +166,109 @@ export default class Pokemon {
 ```
 Dentro de la clase pokemon tenemos un constructor que recibe los datos del pokemon por paramentro y una serie de propiedades, el id, el nombre, la imagen delantera y la imagen trasera, los datos necesarios de cada pokemon. 
 
-
-
-Lo siguiente fue meternos con el javascript, con el archivo index.js, este archivo va a tener las funciones. Lo primero que tuve que hacer fue obtener el evento del click en el boton de la pokedex por lo que cree una funciona donde hicieramos esto y la pokedex la ocultamos y mostramos los pokemon, también llamamos a la funcion obtener pokemon. 
-En la función obtener pokemos hacemos uso de las promesas para obtener los objetos de los pokemons de la API proporcionada, guardamos los datos en un json lo que lo pasamos a una constante y luego creamos un nuevo objeto pokemon con los datos del pokemon, en este caso, el id, el nombre, la imagen delantera y la imagen trasera, y estos pokemon al ir creando objeto por objeto los tenemos que guardar en algun sitio para luego poder mostrarlos por pantalla para ello llamamos a la funcion insertar pokemon que inserta cada objeto de cada pokemon en un array de pokemon que tenemos hecho al principio. Cuando todo esto haya acabado llamamos a la funcion mostrar pokemon que se encargara de mostrar en la pagina web todos los pokemons en lista ascendente. En la siguiente imagen podemos observar el código:
-
-![dos](imagenes/index_js1.png)
-
-En la siguiente imagen podemos observar el codigo de mostrar los pokemons, lo que hacemos es buscar el elemento que se llame contenido que es donde van a estar los pokemon y guardarlo en una constante que luego utilizaremos. 
-Creamos un for del tamaño del array que en este caso sera de 151, y para cada posición creamos un div carta con dos imagenes, por lo que vamos a tener el id el nombre y las dos imagenes, la trasera y la delantera. 
-
-![tres](imagenes/index_js2.png)
-
-Creamos una clase pokemon para poder hacer objetos de tipo pokemon que tuviera el nombre, el id, y las imagenes correspondientes a cada pokemon. 
-
 ![cuatro](imagenes/pokemon.js.png)
 
-Aquí tenemos los estilos dados a cada uno de los div o de las clases o las propias imagenes. Como se puede ver un poco en la primera imagen, hemos hecho uso de :hover para que cuando nosotros pasemos el raton por encima de la imagen del pokemon se nos ponga la otra, tambien hemos hecho uso de display: inline-block y display: none para poder quitarlas y ponerlas cuando nosotros dejemos de pasar con el raton por encima. 
+Por último, volvemos a la clase obtenerPokemon y llamamos a la función insertar pokemon y le pasamos el objeto creado anteriormente.
+
+```
+function insertar_pokemon (pokemon) { // funcion insertar pokemon que se encargara de meter cada pokemon en el array creado al principio
+  array_pokemons.push(pokemon)
+}
+```
+Dentro de esta función lo que hacemos es meter el objeto de ese pokemon dentro del array creado al principio para todos los pokemon. 
+
+Una vez se sale del for, utilizamos await para experar a que haga lo anterior y una vez hecho, llamamos a la función mostrar pokemons que tambien es de tipo asíncrono. 
+
+```
+const mostrar_pokemons = async () => { // Tenemos la funcion mostrar pokemon
+  const pokedex = document.getElementById('contenido') // creamos una constante pokedex con el elemento contenido
+
+  for (var i = 0; i < array_pokemons.length; i++) { // Recorremos todo el array de los pokemon, utilizamos innetHTML para meter un div carta con las imagenes y los datos del pokemon
+    pokedex.innerHTML += `
+                    <div class="carta">
+                        <img src="${array_pokemons[i].imagen_detras}">
+                        <img src="${array_pokemons[i].imagen_delante}" class="delante"><br>
+                        ${array_pokemons[i].id} ${array_pokemons[i].nombre} 
+                    </div>
+                    `
+  }
+}
+```
+Dentro de esta función llamamos al id contenido que es el div que creamos en el index.html. Declaramos un for que recorre todo el array de pokemon y metemos con innetHTMl a contenido(pokedex) un div que es la carta con las imagenes el identificador del pokemon y el nombre del pokemon.
+
+Por ultimo:
+```
+crear_pokedex()
+```
+Llamamos a la función crear pokedex, para poner todo en funcionamiento.
+
+![dos](imagenes/index_js1.png)
+![tres](imagenes/index_js2.png)
+
+Vamos a comentar que hemos utilizado postcss para mejorar el css. 
+
+```
+.carta{
+    border-radius: 2%;
+    background-color: #B5B5B5; 
+    display: inline-block; 
+    align-items: center;
+    position: relative;
+    margin-top: 10px;
+    text-align: center;
+    width: 200px;
+    height: 200px;   
+    align-items: center;    
+    font-weight: bold;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #7E7E7E;
+
+    img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .delante {
+        display: none;
+    }
+    
+    &:hover img {
+        display: none;
+    }
+
+    &:hover .delante {
+        display: inline-block;
+        animation: redimensionar 3s infinite;
+    }
+
+
+}
+```
+
+Para poder redimensaionar las imagenes hemos utilizado animation: redimensionar 3s infinite, esto llama a una "función" redimensarionar:
+
+```
+@keyframes redimensionar {
+    0% {
+      transform: scale(1);
+    }
+  
+    100% {
+      transform: scale(1.3);
+    }
+  }
+  ```
+  
+  Transforma la escala de la imagen.
+  
+  En las siguientes imágenes podemos observar el código css.
+
 
 ![cinco](imagenes/css1.png)
-
-Para redimensionar la imagen solo hemos tenido que hacer uso de animation y de un keyframes llamado redimensionar donde le transformamos la escala a la imagen. 
-
 ![seis](imagenes/css2.png)
+
+
 
 ### ¿Qué es PostCss?
 
@@ -200,7 +280,7 @@ Es “una herramienta para transformar CSS con plugins de Javascript”
 
 # CSSNext
 
-CSS Next te permite usar la sintaxis más actualizada de CSS en sitios web que estás desarrollando. Como debes saber la W3C, comunidad encargada de regular los estándares usados en la web, publica nuevas reglas para CSS que permiten a los desarrolladores agilizar su proceso de trabajo. Sin embargo, estas nuevas reglas todavía no han sido implementadas en las últimas versiones de los navegadores más populares. Es aquí cuando CSS Next entra en acción y te permite hacer uso de esta nueva sintaxis sin comprometer el funcionamiento de tus sitios.
+- CSS Next te permite usar la sintaxis más actualizada de CSS en sitios web que estás desarrollando. Como debes saber la W3C, comunidad encargada de regular los estándares usados en la web, publica nuevas reglas para CSS que permiten a los desarrolladores agilizar su proceso de trabajo. Sin embargo, estas nuevas reglas todavía no han sido implementadas en las últimas versiones de los navegadores más populares. Es aquí cuando CSS Next entra en acción y te permite hacer uso de esta nueva sintaxis sin comprometer el funcionamiento de tus sitios.
 
 
 URL Github Pages: https://ull-esit-dsi-1920.github.io/dsi-p4-pokedex-ayrtoncg20/

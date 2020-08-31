@@ -44,10 +44,129 @@ Retos
 
 ### Comenzando 
 
-Lo primero que tenemos que hacer es crear la jerarquía de la práctica, para ello creamos todos los directorios. 
-En el index_html he declarado una serie de div para luego utilizarlos en el javascript y rellenarlos con los pokemons, también he hecho una especia de pokedex anterior para que quede un poco mad dinámico y no salgan los pokemons porque sí. En la siguiente imagen podemos observar el código llevado a cabo:
+Antes que nada para poder comenzar la práctica lo primero que tenemos que hacer al crear el directorio de trabajo es hacer un:
 
+```
+$ npm init
+```
+Para iniciar un repositorio. Dentro de la carpeta tenemos que hacer:
+
+```
+$ git remote add origin <ruta_ssh>
+```
+
+A continuación creamos el package.json
+
+```
+$ npm init -y 
+```
+
+Por último instalamos parcel de manera local:
+
+```
+$ npm install -D parcel-bundler
+```
+
+Lo primero que tenemos que hacer es crear la jerarquía de la práctica, para ello creamos todos los directorios. 
+
+```
+src
+  assets
+  css
+   index.css
+  js
+   index.js
+   Pokemon.js
+  index.html
+```
+
+Comenzamos con el código y nos dirigimos al index.html para explicarlo:
+
+En este fichero creamos una primpera parte para mostrar una especie de pokedex con la que podemos interactuar para después ver la lista de pokemon que tiene esa pokedex. Para ello declaramos un div pokedex donde tenemos unas imagenes y un boton el cual el usuario va a pulsar para ver todos los pokemon que hay. 
+
+```
+ <div id="pokedex">
+        <!--Creamos un div para tener una especie de pokedex donde tendremos un boton para poder ver todos los pokemon-->
+        <img
+            src="https://images.wikidexcdn.net/mwuploads/esssbwiki/thumb/7/77/latest/20111028181540/TituloUniversoPok%C3%A9mon.png/550px-TituloUniversoPok%C3%A9mon.png">
+        <div class="container my-5 text-center">
+            <button class="btn btn-warning" id="button">Pokedex</button>
+            <img
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/62902855-31e8-48de-986e-5080e8ef5f15/d5uxsvu-cbf56dfe-0c82-40f9-928b-1e756acf0236.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNjI5MDI4NTUtMzFlOC00OGRlLTk4NmUtNTA4MGU4ZWY1ZjE1XC9kNXV4c3Z1LWNiZjU2ZGZlLTBjODItNDBmOS05MjhiLTFlNzU2YWNmMDIzNi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.2zLsxmr6hCqcUNfeDQCmgJ4MXZ6OA-oU_kWdoX6C4-A">
+        </div>
+    </div>
+ ```
+ Después he declarado un div contenido que es donde vamos a añadir todos nuestros pokemons con javascript.
+ 
+ En la siguiente imagen podemos ver el index.html
 ![uno](imagenes/index.html.png)
+
+Ahora nos dirigimos al index.js.
+
+Dentro del index.js tenemos que declarar:
+
+```
+import 'regenerator-runtime/runtime'
+import Pokemon from './Pokemon.js
+```
+
+Declaramos runtime para que las promesas no fallen y tambien tenemos que importar la clase pokemon para poder crear objetos tipo pokemos mas adelante.
+
+```
+var array_pokemons = []
+```
+
+Creamos un array de pokemon, contendrá todos los pokemon de la pokedex. 
+
+Comenzamos ahora con las funciones, la primera función que nos encontramos en la de crear pokedex:
+
+```
+function crear_pokedex () { // Cremos una funcion crear pokedex que se encargara de cuando toquemos el boton quitar la pokedex y mostrar los pokemon
+  const button = document.querySelector('#button') // Seleccionamos el elemento boton
+  button.addEventListener('click', () => { // Si hay un evento de click
+    document.querySelector('#pokedex').style.display = 'none' // La pokedex ponla a nula
+    document.querySelector('#contenido').style.visibility = 'visible' // Pon el contenido a visible
+    obtenerPokemon() // Llamamos a la función obtener pokemon
+  })
+}
+```
+
+En esta función utilizamos javascript para coger el boton creado en el html, creamos una constante llamada button. Le añadimos un evento click a esa constante, cuando el usuario haga click en el boton entonces, la pokedex se dejará de ver y se empezará a ver el contenido de la pokedex que son los pokemons, por último dentro de esta función llamamos a obtenerPokemon().
+
+A continuación vamos a ver la función obtener pokemon:
+
+```
+const obtenerPokemon = async () => { // Tenemos que utilizar promesas por lo que declaramos un async
+  for (var numero_pokemon = 1; numero_pokemon <= 151; numero_pokemon++) { // Recorremos el numero de pokemon que tenemos
+    await fetch('https://pokeapi.co/api/v2/pokemon/' + numero_pokemon + '/') // Hacemos una promesa para que nos devuelva cada pokemon
+      .then(data => data.json()) // Guardamos en data el json de los datos del pokemon
+      .then(data => {
+        const datos_pokemon = data // Guardamos en datos pokemon el json de los datos del pokemon guardado en data gracias a las promesas
+        const pokemon = new Pokemon(datos_pokemon) // Creamos un nuevo pokemon con los datos del mismo
+        insertar_pokemon(pokemon) // Llamamos a insertar pokemon que se encargara de insertar los pokemon en el array
+      })
+  }
+  await mostrar_pokemons() // Esperamos y cuando se haya realizado todo llamamos a la funcion mostrar pokemon
+}
+```
+
+Dentro de esta función utilizamos las promesas, por ello declaramos la función como asíncrona. Declaramos un for para poder llamar a todos los pokemon con la promesa fetch y la url mas el numero del pokemon. Dentro de la promesa el json del pokemon se guarda en data por lo que nosotros hemos creado una constante llamada datos_pokemon donde guardamos el json del pokemon. A continuacion creamos un objeto tipo pokemon y le pasamos la constante datos pokemon. Vamos a ver que tiene la clase Pokemon:
+
+```
+
+export default class Pokemon {
+  constructor (datos_pokemon) {
+    // Le pasamos por el constructor todos los datos del pokemon, de uno en particular
+    this.nombre = datos_pokemon.name // El nombre de este pokemon será el nombre del objeto que le pasemos por parametro en este caso dentro de datos_pokemon buscamos la variable name
+    this.id = datos_pokemon.id // Se busca dentro del objeto la variable id
+    this.imagen_detras = datos_pokemon.sprites.back_default // Guardamos la imagen de detras
+    this.imagen_delante = datos_pokemon.sprites.front_default // guardamos la imagen de delante
+  }
+}
+```
+Dentro de la clase pokemon tenemos un constructor que recibe los datos del pokemon por paramentro y una serie de propiedades, el id, el nombre, la imagen delantera y la imagen trasera, los datos necesarios de cada pokemon. 
+
+
 
 Lo siguiente fue meternos con el javascript, con el archivo index.js, este archivo va a tener las funciones. Lo primero que tuve que hacer fue obtener el evento del click en el boton de la pokedex por lo que cree una funciona donde hicieramos esto y la pokedex la ocultamos y mostramos los pokemon, también llamamos a la funcion obtener pokemon. 
 En la función obtener pokemos hacemos uso de las promesas para obtener los objetos de los pokemons de la API proporcionada, guardamos los datos en un json lo que lo pasamos a una constante y luego creamos un nuevo objeto pokemon con los datos del pokemon, en este caso, el id, el nombre, la imagen delantera y la imagen trasera, y estos pokemon al ir creando objeto por objeto los tenemos que guardar en algun sitio para luego poder mostrarlos por pantalla para ello llamamos a la funcion insertar pokemon que inserta cada objeto de cada pokemon en un array de pokemon que tenemos hecho al principio. Cuando todo esto haya acabado llamamos a la funcion mostrar pokemon que se encargara de mostrar en la pagina web todos los pokemons en lista ascendente. En la siguiente imagen podemos observar el código:

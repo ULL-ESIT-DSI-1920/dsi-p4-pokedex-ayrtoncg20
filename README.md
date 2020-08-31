@@ -282,6 +282,10 @@ Es “una herramienta para transformar CSS con plugins de Javascript”
 
 - CSS Next te permite usar la sintaxis más actualizada de CSS en sitios web que estás desarrollando. Como debes saber la W3C, comunidad encargada de regular los estándares usados en la web, publica nuevas reglas para CSS que permiten a los desarrolladores agilizar su proceso de trabajo. Sin embargo, estas nuevas reglas todavía no han sido implementadas en las últimas versiones de los navegadores más populares. Es aquí cuando CSS Next entra en acción y te permite hacer uso de esta nueva sintaxis sin comprometer el funcionamiento de tus sitios.
 
+# CSSNano
+
+- Si necesita archivos CSS optimizados y minimizados para un sitio de producción, vale la pena consultar CSSNano. Es un complemento modular que consta de muchos complementos PostCSS más pequeños y de responsabilidad única. No solo realiza técnicas básicas de minificación, como eliminar espacios en blanco, sino que también tiene opciones avanzadas que hacen posibles optimizaciones enfocadas. Entre muchas otras características, CSSNano es capaz de reajustar los valores del índice Z, reducir los identificadores personalizados, convertir los valores de longitud, tiempo y color, y eliminar los prefijos de proveedores obsoletos.
+
 
 URL Github Pages: https://ull-esit-dsi-1920.github.io/dsi-p4-pokedex-ayrtoncg20/
 
